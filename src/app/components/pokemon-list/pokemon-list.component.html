@@ -1,0 +1,29 @@
+<div class="main-content">
+  <form  class="todo-form"  (ngSubmit)="filterPokemons(); todoForm.reset()" #todoForm="ngForm" >
+    <input type="number" name="weight" [(ngModel)]="weight" placeholder="Max weight" required>
+  </form>
+  <div class="pokemon-list">
+    <div class="pokemon-item" *ngFor="let pok of allPokemons">
+      <div class="left">
+        <div class="image"><img src={{pok.sprites.front_default}} alt=""></div>
+        <div class="info">
+          <h3>{{pok.name}}</h3>
+          <p>weight: <span> {{pok.weight}}</span></p>
+        </div>
+      </div>
+      <div class="right">
+        <div class="info-button" ><span (click)="openPopup(pok)"><i tooltip content="Go to Details" class="fa fa-pencil-square-o" aria-hidden="true"></i></span></div>
+        <p>experience: <span> {{pok.base_experience}}</span></p>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+<div class="back"  *ngIf="showDialog" [ngClass]="showDialog ? 'active' : ''">
+  <app-popup (onClose)="onClose($event)"></app-popup>
+</div>
+<div class="spinner" *ngIf="!hiddenSpinne">
+  <!--<div class="loader" ></div>-->
+  <div class="rotate-shadows"></div>
+</div>

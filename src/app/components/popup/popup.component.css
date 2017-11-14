@@ -1,0 +1,41 @@
+.popup{
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    width:50%;
+    height:400px;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #cacaca;
+    text-align: center;
+}
+
+.close{
+    text-align: right;
+}
+
+.close i{
+    font-size: 20px;
+    cursor: pointer;
+}
+p{
+    margin: 5px;
+}
+
+p::first-letter {
+    text-transform: uppercase;
+}
+p span::first-letter {
+    text-transform: uppercase;
+}
+
+img{
+
+}
+.mainInfo{
+    width:200px;
+    margin: 0 auto;
+}
