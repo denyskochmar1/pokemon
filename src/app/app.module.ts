@@ -9,9 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
-import {PokemonApiService} from "./services/pokemon-api.service";
+import { PokemonApiService } from './services/pokemon-api.service';
 import { API_HTTP_PROVIDERS } from './services/api.service';
 import { PopupComponent } from './components/popup/popup.component';
+import { PokemonDataProvider } from './services/pokemon.data-provider.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,11 @@ import { PopupComponent } from './components/popup/popup.component';
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [PokemonApiService, API_HTTP_PROVIDERS],
+  providers: [
+    PokemonApiService,
+    API_HTTP_PROVIDERS,
+    PokemonDataProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
