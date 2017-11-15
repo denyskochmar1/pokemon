@@ -1,22 +1,22 @@
 <div class="popup">
   <div class="close"> <span (click)="closePop(false)"><i class="fa fa-times" aria-hidden="true" ></i></span></div>
-  <p>Name: <span> {{mainPokemon.name}}</span></p>
-  <img src={{mainPokemon.sprites.back_default}} alt="">
-  <img src={{mainPokemon.sprites.front_default}} alt="">
+  <p>Name: <span> {{selectedPokemon.name}}</span></p>
+  <img src={{selectedPokemon.sprites.back_default}} alt="">
+  <img src={{selectedPokemon.sprites.front_default}} alt="">
   <div class="mainInfo">
     <div class="left">
-      <p>Weight: <span> {{mainPokemon.weight}}</span></p>
-      <p>Height: <span> {{mainPokemon.height}}</span></p>
+      <p>Weight: <span> {{selectedPokemon.weight}}</span></p>
+      <p>Height: <span> {{selectedPokemon.height}}</span></p>
     </div>
     <div class="right">
-      <p>Experience: <span> {{mainPokemon.base_experience}}</span></p>
+      <p>Experience: <span> {{selectedPokemon.base_experience}}</span></p>
     </div>
     <div class="clearfix"></div>
   </div>
 
   <div class="abilities">
     <h4>Abilities:</h4>
-    <p *ngFor="let ability of mainPokemon.abilities">{{ability.ability.name}}</p>
+    <p *ngFor="let ability of selectedPokemon.abilities">{{ability.ability.name}}</p>
   </div>
 
 

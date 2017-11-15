@@ -120,11 +120,8 @@
     margin: 0 auto;
 }
 
-.todo-form{
+.weight-input {
     margin-bottom: 40px;
-}
-
-.todo-form input{
     width:100%;
     padding: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -136,8 +133,6 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-
-
 
 .back{
     position: fixed;

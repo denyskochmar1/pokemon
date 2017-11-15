@@ -1,9 +1,7 @@
 <div class="main-content">
-  <form  class="todo-form"  (ngSubmit)="filterPokemons(); todoForm.reset()" #todoForm="ngForm" >
-    <input type="number" name="weight" [(ngModel)]="weight" (ngModelChange)="filterPokemons($event)" placeholder="Max weight" required>
-  </form>
+  <input class="weight-input" type="number" name="weight" [ngModel]="weight" (ngModelChange)="filterPokemons($event)" placeholder="Max weight" required>
   <div class="pokemon-list">
-    <div class="pokemon-item" *ngFor="let pok of allPokemons">
+    <div class="pokemon-item" *ngFor="let pok of pokemons_filtered">
       <div class="left">
         <div class="image"><img src={{pok.sprites.front_default}} alt=""></div>
         <div class="info">
