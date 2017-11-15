@@ -36,11 +36,15 @@ export class PokemonListComponent implements OnInit {
     });
   }
 
-  public filterPokemons(){
+  public filterPokemons(eve?){
     this.allPokemons = this.allPokemonsStatic;
-    this.allPokemons = this.allPokemons.filter(pokemon=>{
+    if(eve){
+      this.allPokemons = this.allPokemons.filter(pokemon=>{
         return pokemon.weight <= this.weight;
-    });
+      });
+    }else{
+      this.allPokemons = this.allPokemonsStatic;
+    }
     this.allPokemons.sort((a,b)=>{
        return b.base_experience - a.base_experience;
     })
