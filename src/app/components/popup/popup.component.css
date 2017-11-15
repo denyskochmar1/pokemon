@@ -28,7 +28,7 @@ p{
 p::first-letter {
     text-transform: uppercase;
 }
-p span::first-letter {
+span::first-letter {
     text-transform: uppercase;
 }
 
@@ -36,6 +36,6 @@ img{
 
 }
 .mainInfo{
-    width:200px;
+    width:220px;
     margin: 0 auto;
 }

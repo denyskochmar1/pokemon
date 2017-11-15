@@ -12,6 +12,7 @@ import 'rxjs/add/operator/first';
 export class PokemonListComponent implements OnInit {
   public pokemonsList;
   public allPokemons;
+  public allPokemonsStatic;
   public weight:number;
   public showDialog = false;
   public hiddenSpinne:boolean = false;
@@ -21,19 +22,22 @@ export class PokemonListComponent implements OnInit {
   ngOnInit() {
     this.pokemonApiService.getPokemons().subscribe(pokemons=>{
       this.pokemonsList = pokemons;
-      let pokemonNames = this.pokemonsList.results.map(pokemon=>{
+      let pokemonNamesAll = this.pokemonsList.results.map(pokemon=>{
         return pokemon.name;
       });
+      // let slicePokeminName = pokemonNamesAll.slice(0,11);
       Observable
-        .forkJoin(...pokemonNames.map(name => this.pokemonApiService.getPokemonItem(name)))
+        .forkJoin(...pokemonNamesAll.map(name => this.pokemonApiService.getPokemonItem(name)))
         .subscribe((result) => {
           this.allPokemons = result;
+          this.allPokemonsStatic = this.allPokemons.slice();
           this.hiddenSpinne = !this.hiddenSpinne;
         });
     });
   }
 
   public filterPokemons(){
+    this.allPokemons = this.allPokemonsStatic;
     this.allPokemons = this.allPokemons.filter(pokemon=>{
         return pokemon.weight <= this.weight;
     });

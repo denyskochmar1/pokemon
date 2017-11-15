@@ -19,7 +19,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 
-const BASE_URL = `http://pokeapi.co/api/v2`;
+const BASE_URL = `https://pokeapi.co/api/v2`;
 const SOCKET_URL = ``;
 
 @Injectable()
@@ -37,7 +37,7 @@ export class ApiHttp extends Http {
   public request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
     if( typeof url === 'string' ) {
       // options = this.prepareOptions(options);
-      return super.request( `${BASE_URL }/${url}`, options );
+      return super.request( `${ BASE_URL }/${url}`, options );
     } else if( url instanceof Request ) {
       return super.request( url );
     } else {
@@ -49,7 +49,7 @@ export class ApiHttp extends Http {
    * Performs a request with `getUnit` http method.
    */
   public get(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    return super.get( `${BASE_URL }/${url}`)
+    return super.get( `${BASE_URL }/${url}`, this.setHeaders())
         .catch( (error) => this.handleError( error ) );
   }
 
@@ -104,9 +104,7 @@ export class ApiHttp extends Http {
 
   private setHeaders() {
     let options: RequestOptionsArgs = {
-      headers : new Headers( {
-        Authorization : `Bearer ${localStorage.getItem( 'token' )}`
-      } )
+      headers : new Headers( {} )
     };
     return options;
   }
